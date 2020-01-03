@@ -12,19 +12,19 @@ with open(csvPath, newline='') as csvfile:
     candidates = []
 
     for row in csvreader:
-        votesCast = votesCast + 1
+        votesCast += 1
 
         matched_candidate = False
         for candidateDict in candidates: 
-            for Candidate, Votes in candidateDict.items(): 
-                if Candidate == row[2]:
-                    matched_candidate = candidateDict
-                    Votes = Votes + 1
-                else:
-                    candidates.append({"Candidate": row[2],
-                                        "Votes": 1})
+            if row[2] in dict.values(candidateDict):
+                matched_candidate == candidateDict
+                # candidateDict[Votes] == candidateDict.get(Votes) + 1
+                # how do I increment the value of "Votes" once for each loop thru?
+            else:
+                candidates.append({"Candidate": row[2],
+                                    "Votes": 1})
 
-        # this should take care of the first case in which there is not dict yet.
+        # this should take care of the first case in which there is no dict yet.
         if not(matched_candidate): 
             candidates.append({"Candidate": row[2],
                                     "Votes": 1})
@@ -39,10 +39,6 @@ with open(csvPath, newline='') as csvfile:
                     #candidates.append({"Candidate": row[2],
                                         #"Votes": 1})
 
-        #if len(candidates) == 0:
-            #candidates.append({"Candidate": row[2],
-                                    #"Votes": 1})
-
         # write a searcher fn, for each row check if cand is already in cand list
         # if not add
         # if yes increment cand vote total by 1.
@@ -53,6 +49,8 @@ with open(csvPath, newline='') as csvfile:
     #output += f"Total Votes: {votesCast} \n"
     #output += "---------------------------------- \n"
 
+    #---
+    
     #output += f"Total: ${netProfitLosses} \n"
     #output += f"Average Change: ${avgChngProfitLoss} \n"
 
