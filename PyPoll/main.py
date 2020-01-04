@@ -37,18 +37,6 @@ with open(csvPath, newline='') as csvfile:
             highestVotes = candidateDict["Votes"]
             electionWinner = candidateDict["Candidate"]
 
-    #for candidateDict in candidates:
-        #def dictToString(candidateDict):
-            #return str(candidateDict).replace(', ','\r\n').replace("u'","").replace("'","")[1:-1]
-
-    # Ideally I would make my output nicer by telling each dictionary to print its pieces as shown below,
-    #   but that syntax doesn't recognize the way I'm grabbing keys from each dictionary.
-
-    #dictsFormatted = []
-    #for candidateDict in candidates:
-        #output1 = f"{candidateDict.Candidate} won {candidateDict.Votes} (%{candidateDict.PercentageOfVotes}). "
-        #dictsFormatted.append(output1)
-
     output = "Election Results \n\n"
     output += "---------------------------------- \n"
     output += f"Total Votes: {votesCast} \n"
